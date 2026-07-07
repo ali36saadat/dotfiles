@@ -1,0 +1,59 @@
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+*cursorBlink:                     false
+*scrollBar:                       false
+
+!! *background:                      #23252E
+*background:                      #131313
+
+*foreground:                      #eeeeee
+*fading:                          8
+*fadeColor:                       #333333
+*cursorColor:                     #CE20C4
+*pointerColorBackground:          #313744
+*pointerColorForeground:          #16A085
+
+!! black dark/light
+*color0:                          #1f1e1e
+*color8:                          #6d6b6b
+
+!! red dark/light
+*color1:                          #6a1415
+*color9:                          #d4282a
+
+!! green dark/light
+*color2:                         #1abf8d
+*color10:                        #117e5e
+
+!! yellow dark/light
+*color3:                         #8d3a0d
+*color11:                        #d35816
+
+!! blue dark/light
+*color4:                         #1a5686
+*color12:                        #2d93e6
+
+!! magenta dark/light
+*color5:                         #c51dd1
+*color13:                        #721279
+
+!! cyan dark/light
+*color6:                         #026680
+*color14:                        #07abd4
+
+!! white dark/light
+*color7:                         #d8d6d6
+*color15:                        #eeecec
+
+Xcursor.theme:                capitaine-cursors-light
+Xcursor.size:                 16
+
+!*font:                       xft:Courier Prime:size=15:antialias=true
+!*boldFont:                   xft:Courier Prime:bold:size=15:antialias=true
+!*letterSpace: 1

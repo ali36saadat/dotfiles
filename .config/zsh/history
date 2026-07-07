@@ -1,0 +1,826 @@
+sudo pacman -Sy cowsay
+cowsay hello
+nvim $HOME/.sh
+nvim $HOME/.zshrc
+clear
+exitg
+exit
+clear
+nvim $HOME/.zshrc
+tput coloes
+tput colors
+D
+CLEAR
+TERM="xterm-256color"
+tput colors
+env | grep "TERM"
+source .zshrc
+clear
+nvim $HOME/.zshrc
+exit
+cd ..
+nvim $HOME/.zshrc
+exit
+exit
+nvim $HOME/.zshrc
+exit
+clear
+echo $EDITOR
+zshrc
+exit
+reload
+clear
+zshrc
+reload
+reload
+reload
+zshrc
+clear
+cd ..
+zshrc
+pwd
+cd home
+pwd
+nvim lazy-pacman
+nvim lazy-pacman
+exit
+celar
+clear
+zsh lazy-pacman -S xorg
+pwd
+nvim lazy-pacman
+reload
+zsh lazy-pacman -S xorg
+clear
+lazy-pacman
+ls -la
+lazy-pacman -S xorg
+nvim lazy-pacman
+./lazy-pacman -S xorg
+chmod +x ./lazy-pacman
+./lazy-pacman -S xorg
+zshrc
+echo
+cd .local
+cd ..
+cd .local
+ls -la
+cd home
+mkdir .local
+sudo mkidr .local
+sudo mKDR .Local
+sudo mkdir .Local
+cd .lo
+cd .local
+sudo mkdir .local
+cd .local
+sudo mkdir bin
+cd bin
+mv ~/lazy-pacman .
+mv ~/../lazy-pacman .
+cd ..
+ls -la
+cd ..
+ls -la
+mv ./lazy-pacman ./.local/bin
+sudo mv ./lazy-pacman ./.local/bin
+cd .local/bin
+sudo nvim path
+reload
+clear
+path
+chmode x+ ./path
+chmod x+ ./path
+chmod +x ./path
+path
+chmod +x path
+sudo chmod +x path
+path
+path
+zsh path
+reload
+path
+sudo vim path
+sudo nvim path
+exit
+clear
+path
+zshrc
+reaload
+reload
+path
+reaload
+zshrc
+exit
+path
+PATH
+cd ~/.local
+ls -la
+where
+whereami
+mkdir bin
+cd ..
+ls -la
+cd home
+cd .local
+ls -la
+cd ..'
+cd ..
+pwd
+zshrc
+echo $HOME
+cd ..
+mv ./.local/bin/lazy-pacman ./skill/.local/bin
+sudo mv ./.local/bin/lazy-pacman ./skill/.local/bin
+sudo mv ./.local/bin/path ./skill/.local/bin
+reload
+path
+clear
+skill
+cd skill
+zshrc
+zshrc
+reload
+path
+reload
+path
+reload
+path
+zshrc
+exit
+exit
+exit
+exit
+pacman -S pcmanfm
+clear
+pcmanfm
+clearr
+exit
+path
+reload
+path
+clear
+pacman -S xorg
+path
+cd ./skill/.local/bin
+ls -la
+whoami
+nvim lazy-pacman
+zshrc
+cealr
+clear
+reaload
+reload
+pacman -S xorg
+zshrc
+mv ./lazy-pacman ../
+ls -la
+cd ..
+ls -la
+mv ./lazy-pacman ..
+reload
+clear
+pacman -Sy xorg
+clear
+pacman -Syuu
+pacman -Syuu
+pacman -Syuu
+pacman -S xorg
+pacman -S tmux
+pacman -S xorg-init
+pacman -S xorg-xinit
+startx
+pacman -S xclock xorg-twm xterm
+pacman -S xclock 
+pacman -S xorg-twm xterm
+pacman -S xorg-clock
+pacman -S xorg-xclock
+startx
+clear
+startx
+clear
+cd ..
+sudo nvim .xinitrc
+nvim .xinitrc
+startx
+nvim .xinitrc
+ls -la
+reaload
+reload
+cler
+clear
+startx
+ls -la
+nvim .xinitrc
+startx
+startx
+nvim .xinitrc
+startx
+exit
+pwd
+nvim .xinitrc
+pacman -Syu
+pacman -Syu
+pacman -Syu
+clear
+pacman -Sy screenkey
+exit
+exit
+pacman -Sy htop
+pacman -S htop
+htop
+zsh htop
+pacman -S htop
+htop
+pcmanfm
+xrandr
+xrander --output Virtual-1 --mode 1920*1080
+xrandr --output Virtual-1 --mode 1920*1080
+xrander --output Virtual-1 --mode 1920x1080
+xrandr --output Virtual-1 --mode 1920x1080
+xrandr --output Virtual-1 --mode 1920x1080 --scale 2
+xrandr --output Virtual-1 --mode 1920x1080 --scale 0.5
+xrandr --output Virtual-1 --mode 1920x1080 --scale 0.75
+pacman -Sy firfox
+pacman -Sy firefox
+xrandr --output Virtual-1 --mode 1920x1080 --scale 0.75 -r 60
+xrandr
+clear
+htop
+celar
+clear
+firefox
+claer
+clear
+pacman -Sy sxhkd
+pacman -Sy man
+clear
+sxhkd
+pwd
+mkidr .config/sxhkd
+mkdir .config/sxhkd
+cd .config/sxhkd
+nvim sxhkdrcx
+nvim sxhkdrc
+sxhkd
+reload
+sxhkd
+clear
+pacman -Sy rofu
+pacman -Sy rofi
+rofi
+rofi
+rofi -show run
+clear
+pwd
+cd .config/sxhkd
+nvim sxhkdrc
+sxhkd
+nvim sxhkdrc
+sxhkd
+exit
+exit
+pacman -Sy vscode
+pacman -Sy code
+code .
+clear
+xrdb -load .Xresource
+sxhkd
+xrandr
+exit
+pacman -S screenkey
+pcmanfm
+code .
+startx
+exit
+code .
+zshrc
+reload
+startx
+clear
+reload
+exit
+
+V
+ö
+
+chmod -R 755
+chmod -R 755 .
+sudo chmod -R 755
+sudo chmod -R 755 .
+fc-list
+clear
+fc-list : family
+xrandr
+xrandr
+xrandr
+cp /etc/xdg/awesome/rc.lua ~/.config/awesome
+cp -r /usr/share/awesome/themes/xresources/ ~/.config/awesome
+pacman -Sy tree
+pacman -Sy tree
+sudo nvim /etc/pacman.conf
+sudo nvim /etc/pacman.conf
+reload
+pacman -Syuu
+pacman -Sy alacrity
+pacman -Sy alacrity
+pacman -Sy alacrity
+pacman -S alacrity
+pacman -Sy  alacritty
+alacritty
+clear
+ls -la
+cd devs
+pacman -Sy git
+git clone github.com/Asafaeirad/dotfiles
+git clone github.com/Asafaeirad/dotfiles.git
+git clone github.com/ASafaeirad/dotfiles.git
+git clone https://github.com/ASafaeirad/dotfiles.git
+code ./.config/awesome
+exit
+startx
+startx
+startx
+restart
+reboot
+sudo reboot
+reload
+xwallpaper 
+xwallpaper ~/pics/wall.png
+xwallpaper --zoom ~/pics/wall.png
+code ./devs/dotfiles
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+exit
+cd ..
+ls -la
+clear
+cd sxhkd
+code .
+reload
+code .
+reload
+cd ..
+cd awesome-backup
+code .
+reload
+reload
+alacritty
+alacritty
+reload
+exit
+exit
+pacman -Sy nitrogen
+pacman -Sy nitrogen
+pacman -Ss nitrogen
+pacman -Syuu
+pacman -Ss nitrogen\ 
+pacman -Sy nitrogen
+pacman -S yay
+git cloen https://aur.archlinux.org/nitrogen.git
+git clene https://aur.archlinux.org/nitrogen.git
+r
+git clene https://aur.archlinux.org/nitrogen.git
+clear
+git clone https://aur.archlinux.org/nitrogen.git
+cd nitrogen
+makepkg -si
+pacman -S debuggedit
+pacman -S debugedit
+pacman -S fakeroot
+makepkg -si
+pacman -S gtkmm
+pacman -S gtkm
+pacman -S gtknn
+clear
+makepkg -si
+pacman -Sy gtkmm
+pacman -S xwallpaper
+pacman -S xwallpaper
+exit
+exit
+exit
+pacman -Ss brave
+exit
+exit
+exit
+zshrc
+pwd
+code .
+exit
+code .
+exit
+fc-list family
+pacman -Sy ttf-dejavu
+pacman -Ss argon
+fc-cache -f
+fc-list : family
+exit
+exit
+pacman -Syuu sing-box
+pacman -Ss sing-box
+pacman -Ss sing
+exit
+echo beautiful.wallpaper
+echo $beautiful.wallpaper
+pwd
+ls -la
+mkdir .wallpaper
+exit
+startx
+reboot
+sudo reboot
+https://github.com/asafaeirad/dotfiles
+cd devs
+git clone https://github.com/asafaeirad/dotfiles
+cd dotfiles
+code .
+exit
+cd devs
+git clone 
+exit
+exit
+reload
+exit
+ew
+exit
+exit
+pacman -Sy xwallpaper
+pkill awesome
+exit
+exit
+exit
+exit
+pacman -Sy tmux
+cd .local/bin
+chmod +x flyterm
+flyterm
+pkill awesome
+exit
+pkill awesome
+exit
+exit
+tmux
+exit
+pkill awesome
+code .
+exit
+exit
+tmux
+tmux
+startx
+startx
+startx
+startx
+startx
+startx
+pacman -Sy fastfetch
+fastfetch
+clear
+;
+pkill awesome
+sudo reboot
+fastfetch
+exit
+a
+t
+exit
+code .config/sxhkd
+tmux
+exit
+exit
+tmux
+exit
+bye
+gbye
+zshrc
+reload
+gbye
+exit
+fastfetch
+GBYE
+clear
+C=
+clear
+pacman -Syuu picom
+picom
+picom
+picom
+picom
+exit
+exit
+zshrc
+reload
+xinitrc
+zshrc
+reload
+xinitrc
+zshrc
+reload
+xinitrc
+xinitrc
+reload
+pacman -Sy perspolis
+pacman -Sy persepolis
+clear
+fastfetch
+exit
+cd Downloads
+ls -la
+sudo pacman -U installer_archlinux_x64_2.4.6.pkg.tar.zst
+exit
+code .config/picom
+gbye
+clear
+picom
+code .config/picom
+picom
+picom
+picom
+cd .local/bin
+ls -la
+chmod +x slayout
+gbye
+slayout
+echo $slayout
+code .
+path
+slayout
+حك�زخپ
+ح
+picom
+claer
+claer
+clear
+fastfetch
+fastfetch
+picom
+pacman -Ss brave
+\
+
+
+
+عدشپث 
+uname -a
+uname -m
+git clone https://aur.archlinux.org/paru.git
+ 1\\ 
+ 1
+cd paru
+makepkg -si
+
+
+
+حشزپد
+حشزپشد
+pacman -S pkgconf openssl base-devel
+paru -S paru
+sudo paru -S paru
+paru
+sudo paru
+cargo build --release
+code .
+cargo build --release
+cargo
+cargo build --release
+makepkg -si
+paru -Ss brave
+paru -Sy brave-origin-bin
+OA
+paru -Sy brave-origin-bin
+paru -Sy brave-origin-bin
+paru -Sy brave-origin-bin
+exit
+paru -Sy brave-origin-bin
+fastfetch
+exit
+xinitrc
+gbye
+gbye
+persepolis
+pacman -Sy lxappearance
+lxap
+paru -S flat-remix
+paru -S flat-remix-gtk
+persepolis
+clear
+fastfetch
+fastfetch
+fastfetch
+fastfetch
+fastfetch
+gbye
+gbye
+fastfetc
+cd Downloads
+chmod +x installer_archlinux_x64_2.4.6.pkg.tar.zst
+./installer_archlinux_x64_2.4.6.pkg.tar.zst
+pacman -U installer_archlinux_x64_2.4.6.pkg.tar.zst
+سعۃ�خ
+sudo pacman -U installer_archlinux_x64_2.4.6.pkg.tar.zst
+gbye
+pacman -Ql installer_archlinux_x64_2.4.6
+ls /usr/share/applications | grep -i installer
+systemctl status v2raya
+sudo systemctl enable --now v2raya.service
+systemctl status v2raya.service
+clear
+chmod +x Hiddify-Linux-x64-AppImage.AppImage
+./Hiddify-Linux-x64-AppImage.AppImage
+sudo pacman -S fuse2
+sudo pacman -S fuse2
+pacman -S fuse2
+exit
+pacman -Sy fuse2
+gbye
+su skill
+pacman -Sy fuse2
+pacman -Sy fuse2
+su rppt
+su root
+whoami
+su root
+startx
+startx
+pacman -Sy hyprland
+hyprland
+startx
+startx
+startx
+startx
+clear
+startx
+pacman -Sy telegram-desktop
+su skill
+reboot
+cd Downloads
+./Hiddify-Linux-x64-AppImage.AppImage
+pacman -Ss telegram
+pacman -Sy telegram
+gbye
+pacman -Sy fuse2
+su skill
+pacman -Sy fuse2
+su root
+echo $http_proxy
+echo $https_proxy
+echo $all_proxy
+exit
+startx
+hyprland
+Hyprland
+start-hyprland
+hyprland
+startx
+exit
+pkill picom\ 
+pkill picom
+gbye
+code .
+pkill picom
+gbye
+Hyprland
+uname -a
+cat /etc/os-release
+lspci -k | grep -EA3 'VGA|3D|Display'
+echo $XDG_SESSION_TYPE
+cat ~/.cache/hyprland/hyprlandCrashReport5075.txt
+ls ~/.cache/hyprland/
+sudo pacman -S seatd
+sudo systemctl enable --now seatd
+sudo usermod -aG seat $USER
+uwsm start hyprland
+Hyprland
+clear
+whoami
+loginctl
+pacman -Qs seatd
+systemctl status seatd --no-pager
+cat ~/.cache/hyprland/hyprlandCrashReport6216.txt
+sudo usermod -aG seat skill
+sudo usermod -aG seat skill
+ls -l /run/seatd.sock
+sudo reboot
+gbye
+gbye
+startx
+Hyprland
+Hyprland
+startx
+
+
+
+V
+V
+sudo pacman -S open-vm-tools xf86-video-vmware mesa
+sudo systemctl enable --now vmtoolsd.service
+sudo pacman -S open-vm-tools xf86-video-vmware mesa
+sudo systemctl enable --now vmtoolsd.service
+sudo systemctl enable --now vmware-vmblock-fuse.service
+glxinfo | grep "OpenGL renderer"
+sudo pacman -S mesa-utils
+echo $XDG_SESSION_TYPE\
+lspci | grep -i vga\
+glxinfo | grep "OpenGL renderer"
+pacman -Qs open-vm-tools
+sudo pacman -S open-vm-tools
+systemctl list-unit-files | grep vm
+sudo systemctl enable --now vmtoolsd.service\
+sudo systemctl enable --now vmware-vmblock-fuse.service
+systemctl status vmtoolsd.service\
+systemctl status vmware-vmblock-fuse.service
+nvidia-smi
+asdaskdjfhsdkjfsdkjfhskdfshdjfakjsdhasd
+gbye
+xrandr
+
+ڃ�ٰ
+
+
+
+
+
+picom &
+pkill picom
+picom &
+pkill picom
+fastfetch
+startx
+startx
+s
+fastfetch 
+reboot 
+sudo reboot
+exit
+startx
+su skill
+exit
+he
+exit
+eexie
+htop 
+o
+exit
+bash
+exit
+fastfetch 
+exit 
+bash
+s
+gbye
+git config --global.user "Ali Saadat"
+git config --global.user "Ali Saadat"
+git config --global user.name  "Ali Saadat"
+git config --global user.NAME  "Ali36Saadat@gmail.com"
+git config --global user.name  "Ali Saadat"
+git config --global user.email  "Ali36Saadat@gmail.com"
+ك�
+git remote -v
+
+git init      
+slayout
+echo $XDG_SESSION_TYPE
+echo $XDG_SESSION_TYPE\
+echo $DESKTOP_SESSION
+slayour
+slayout
+ظسا
+ZSHR
+pkill slayout
+rm -rf ~/.cache/*
+sudo pacman -Scc
+fc-cache -rv
+cccasd
+ad
+uptime
+vmstat 1 5
+startx
+startx
+startx
+startx
+startx
+sssaqli saadat f f cli asd
+code .
+سك�شغ
+slayout
+xinitrc
+pkill slayout
+ك�ذغع
+gbye
+gbye
+fastfetch
+pwd\
+git rev-parse --show-toplevel\
+git status\
+git branch
+ls -lb ~
+cat -n ~/.gitignore
+
+git check-ignore -v -- '\'
+printf '%s\n' '\\' >> ~/.gitignore
+printf '%s\n' '\\' >> ~/.gitignore

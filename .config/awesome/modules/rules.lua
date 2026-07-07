@@ -1,0 +1,143 @@
+local awful = require("awful")
+local keys = require("modules.keys")
+local gears = require("gears")
+local config = require("modules.config")
+
+local rules = {
+  {
+    rule = {},
+    properties = {
+      focus = awful.client.focus.filter,
+      raise = true,
+      keys = keys.client_keys,
+      buttons = keys.client_buttons,
+      screen = awful.screen.preferred,
+      placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+    },
+  },
+  {
+    rule = {
+      name = "Meet %-.*",
+      role = "pop-up",
+    },
+    properties = {
+      floating = true,
+      ontop = true,
+      focus = false,
+      focusable = false,
+    },
+    callback = function(c)
+      gears.timer.delayed_call(function()
+        if not c.valid then
+          return
+        end
+        awful.placement.bottom_right(c, {
+          honor_workarea = true,
+          honor_padding = true,
+          margins = { right = 12, bottom = 12 },
+        })
+      end)
+    end,
+  },
+  {
+    rule_any = {
+      instance = { "copyq", "pinentry" },
+      class = {
+        "Arandr",
+        "Flows",
+        "Blueman-manager",
+        "pavucontrol",
+        "Gpick",
+        "Kruler",
+        "MessageWin",
+        "Sxiv",
+        "Tor Browser",
+        "Wpa_gui",
+        "veromix",
+        "xtightvncviewer",
+        "persepolis",
+        "Gcolor3",
+      },
+      name = { "Event Tester" },
+      role = { "pop-up" },
+    },
+    properties = {
+      floating = true,
+      placement = awful.placement.centered,
+      size_hints = { max_height = 300, min_width = 200 },
+    },
+  },
+  {
+    rule = { class = "zenity" },
+    properties = {
+      floating = true,
+      placement = awful.placement.centered,
+    },
+    callback = function(c)
+      c:geometry({ width = 900, height = 600 })
+    end,
+  },
+  {
+    rule = { class = "Nitrogen" },
+    properties = { floating = true, width = 600, height = 600, placement = awful.placement.centered },
+  },
+  {
+    rule = { instance = "flyterm" },
+    properties = { floating = true },
+    callback = function(c)
+      c:geometry({ width = 900, height = 600 })
+    end,
+  },
+  {
+    rule = { class = "Zathura" },
+    properties = { floating = true, fullscreen = true },
+  },
+  {
+    rule_any = {
+      class = { "Brave-browser", "Firefox", "Chromium" },
+    },
+    properties = { tag = config.tag_names[2] },
+  },
+  {
+    rule = { class = "Slack" },
+    properties = { tag = config.tag_names[7] },
+  },
+  {
+    rule_any = {
+      class = { "code", "cursor", "dev.zed.Zed" },
+    },
+    properties = { tag = config.tag_names[3] },
+  },
+  {
+    rule = { class = "TelegramDesktop" },
+    properties = { tag = config.tag_names[9] },
+  },
+  {
+    rule = { class = "Spotify" },
+    properties = { tag = config.tag_names[8] },
+  },
+  {
+    rule = { type = "notification" },
+    properties = {
+      floating = true,
+      ontop = true,
+      focus = false,
+      focusable = false,
+      skip_taskbar = true,
+    },
+    callback = function(c)
+      gears.timer.delayed_call(function()
+        if not c.valid then
+          return
+        end
+        awful.placement.bottom_right(c, {
+          honor_workarea = true,
+          honor_padding = true,
+          margins = { right = 12, bottom = 12 },
+        })
+      end)
+    end,
+  },
+}
+
+return rules

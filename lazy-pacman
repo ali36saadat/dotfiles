@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+case $1 in
+  -S | -D | -S[^sih]* | -R* | U)
+  /usr/bin/sudo /usr/bin/pacman "$@"
+  ;;
+*)
+  /usr/bin/pacman "$@"
+  ;;
+esac

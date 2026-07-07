@@ -1,0 +1,26 @@
+[general]
+import = [
+  "./color.toml",
+  "./layout.toml",
+  "./typography.toml",
+  "./mouse.yml",
+  "./key-binding.toml"
+]
+live_config_reload = true
+working_directory = "None"
+
+[cursor]
+thickness = 0.15
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[cursor.vi_mode_style]
+blinking = "On"
+shape = "Block"
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"

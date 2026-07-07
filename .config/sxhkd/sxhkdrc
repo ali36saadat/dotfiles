@@ -1,0 +1,5 @@
+super+shift+d
+  rofi -show run
+
+super+Return
+  alacritty
