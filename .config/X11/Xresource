@@ -54,6 +54,6 @@ Xft.lcdfilter: lcddefault
 Xcursor.theme:                capitaine-cursors-light
 Xcursor.size:                 16
 
-!*font:                       xft:Courier Prime:size=15:antialias=true
-!*boldFont:                   xft:Courier Prime:bold:size=15:antialias=true
+*.font: xft:Vazirmatn:size=15:antialias=true
+*.boldFont: xft:Vazirmatn:bold:size=15:antialias=true
 !*letterSpace: 1

@@ -9,7 +9,7 @@ local xrdb = xresources.get_current_theme()
 
 local theme = dofile(themes_path .. "default/theme.lua")
 
-theme.font = "DejaVu Sans Mono 10"
+theme.font = "Vazirmatn 10"
 theme.fg = xrdb.foreground
 theme.bg = xrdb.background
 theme.bg_alt = "#323643"

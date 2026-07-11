@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+DEFAULT="eDP-1-1"
+SECOND="HDMI-0"
+
+if xrandr | grep "^${SECOND} connected" >/dev/null; then
+    xrandr \
+        --output "$SECOND" --primary --mode 1920x1080 --rate 120 \
+        --output "$DEFAULT" --auto --right-of "$SECOND"
+
+    nvidia-settings --assign \
+    CurrentMetaMode="HDMI-0: 1920x1080_180 +0+0 { ForceFullCompositionPipeline=On }"
+
+else
+    xrandr \
+        --output "$DEFAULT" --primary --auto \
+        --output "$SECOND" --off
+fi
+f

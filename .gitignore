@@ -6,6 +6,12 @@
 .wakatime.cfg
 .gitconfig
 .history
+.bashrc
+.bash_profile
+.bash_logout
+.bash_history
+.yarnrc
+
 
 # config
 !.config/
@@ -96,6 +102,7 @@
 !.config/zsh/
 .config/zsh/completions
 .config/zsh/.zsh_history
+.config/zsh/history
 !.config/waybar/
 
 # local

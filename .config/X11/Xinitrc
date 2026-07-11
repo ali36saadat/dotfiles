@@ -1,11 +1,12 @@
-xrandr --output Virtual-1 --mode 1920x1080
+
+screenoutput &
 sxhkd &
 xrdb -load "$HOME/.config/X11/Xresource"
 setxkbmap -option caps:escape
 
 flyterm &
 slayout -b
-xwallpaper --stretch "$HOME/pics/wallpaper.png" &
+xwallpaper --stretch "$HOME/.local/share/wallpaper/wallpaper.png" &
 
 exec awesome
 asdpoaopsd

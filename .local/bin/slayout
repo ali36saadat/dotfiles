@@ -1,3 +1,5 @@
 #!/bin/bash
 
-setxkbmap -layout us,ir -option grp:win_space_toggle
+# setxkbmap -layout us,ir -option grp:win_space_toggle
+
+setxkbmap -layout us,ir -variant ,winkeys -option grp:win_space_toggle
