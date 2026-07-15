@@ -3,6 +3,7 @@ local xresources = require("beautiful.xresources")
 local naughty = require("naughty")
 local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
+local gears = require("gears")
 local themes_path = gfs.get_themes_dir()
 
 local xrdb = xresources.get_current_theme()
@@ -73,5 +74,11 @@ nconf.presets.critical.fg = theme.bg
 local taglist_square_size = dpi(0)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
+theme.taglist_shape = gears.shape.circle
+theme.taglist_shape_focus = gears.shape.circle
+theme.taglist_shape_empty = gears.shape.circle
+theme.taglist_shape_occupied = gears.shape.circle
+theme.taglist_shape_urgent = gears.shape.circle
+theme.taglist_shape_volatile = gears.shape.circle
 
 return theme

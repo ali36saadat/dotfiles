@@ -28,6 +28,9 @@ text/javascript=code.desktop
 image/gif=feh.desktop
 x-scheme-handler/about=brave-origin.desktop
 x-scheme-handler/unknown=brave-origin.desktop
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
+x-scheme-handler/karing=clashmi.desktop
 
 [Added Associations]
 image/jpeg=feh.desktop;viewnior.desktop;
@@ -53,3 +56,6 @@ video/x-matroska=smplayer.desktop;
 text/javascript=code.desktop;
 image/gif=feh.desktop;
 application/x-zstd-compressed-tar=pcmanfm-desktop-pref.desktop;
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
+application/zip=engrampa.desktop;

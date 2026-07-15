@@ -15,6 +15,7 @@ local COUNTRY_CODES = {
 local DISPLAY_NAMES = {
   us = "EN",
   ir = "IR",
+  ["ir(winkeys)"] = "FA",
 }
 
 -- Pattern table compiled once. Each entry parses one xkb group_names token shape.

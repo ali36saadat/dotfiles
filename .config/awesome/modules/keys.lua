@@ -7,16 +7,20 @@ local modkey = "Mod4"
 
 keys.global_keys = gears.table.join(
   awful.key({ modkey, "Ctrl" }, "r", awesome.restart),
-
   awful.key({ modkey }, "l", utils.focus_next),
   awful.key({ modkey }, "h", utils.focus_prev),
+  awful.key({ modkey }, "o", function()
+      awful.spawn("slayout")
+  end),
+  awful.key({ modkey,"Shift" }, "t", function()
+      awful.spawn("flyterm")
+  end),
   awful.key({ modkey, "Shift" }, "l", utils.inc_width),
   awful.key({ modkey, "Shift" }, "h", utils.dec_width),
   awful.key({ modkey, "Ctrl" }, "l", utils.swap_next),
   awful.key({ modkey, "Ctrl" }, "h", utils.swap_prev),
-
+  awful.key({ modkey, "Shift" }, "'", utils.restore),
   awful.key({ modkey }, "BackSpace", awful.tag.history.restore),
-
   awful.key({ modkey }, "m", utils.focus_next_screen),
 
   awful.key({ modkey }, "t", function()
@@ -83,7 +87,6 @@ keys.client_keys = gears.table.join(
   -- awful.key({ modkey, "Ctrl" }, "Return", utils.move_master),
   awful.key({ modkey, "Shift" }, "m", utils.move_screen),
   awful.key({ modkey }, "'", utils.minimize),
-  awful.key({ modkey, "Shift" }, "'", utils.restore),
   awful.key({ modkey, "Ctrl", "Shift" }, "l", utils.inc_client_width),
   awful.key({ modkey, "Ctrl", "Shift" }, "h", utils.dec_client_width),
   awful.key({ modkey, "Ctrl", "Shift" }, "j", utils.inc_client_height),

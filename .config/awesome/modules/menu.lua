@@ -6,7 +6,7 @@ local beautiful = require("beautiful")
 local config = require("modules.config")
 
 local battery = require("widgets.battery")
--- local volume = require("widgets.volume")
+local volume = require("widgets.volume")
 local brightness = require("widgets.brightness")
 local keyboard_layout = require("widgets.keyboard")
 local date = require("widgets.date")
@@ -32,52 +32,107 @@ function module.init(screen)
       t:view_only()
     end)),
     widget_template = {
-      widget = wibox.container.background,
-      id = "background_role",
-      {
-        widget = wibox.container.margin,
-        left = beautiful.taglist.padding,
-        right = beautiful.taglist.padding,
-        { id = "text_role", widget = wibox.widget.textbox },
-      },
+        {
+            widget = wibox.container.margin,
+            left = beautiful.taglist.padding,
+            right = beautiful.taglist.padding,
+            {
+                id = "text_role",
+                widget = wibox.widget.textbox,
+            },
+        },
+        id = "background_role",
+        widget = wibox.container.background,
+        shape = gears.shape.circle,
     },
   })
 
   screen.wibar = awful.wibar({
     position = "top",
-    width = screen.geometry.width - beautiful.useless_gap * 4,
+    width = screen.geometry.width - beautiful.useless_gap * 800,
     height = beautiful.menu.height,
     screen = screen,
     stretch = false,
+    bg = "#0e1014",
     margins = beautiful.useless_gap * 2,
-  })
-
-  screen.wibar.y = beautiful.useless_gap * 2
+    shape = function(cr, w, h)
+        gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 16)
+    end,
+    })
 
   screen.wibar:setup({
-    right = beautiful.menu.padding.right,
-    left = beautiful.menu.padding.left,
-    layout = wibox.container.margin,
-    {
-      layout = wibox.layout.stack,
+      right = beautiful.menu.padding.riRght,
+      left = beautiful.menu.padding.left,
+        -- layout = wibox.container.margin,
+      layout = wibox.container.place,
+      halign = "center",
+      valign = "center",
       {
-        layout = wibox.layout.align.horizontal,
-        screen.taglist,
-        nil,
-        {
+          widget = wibox.container.place,
+          halign = "center",
+          valign = "center",
+
+          screen.taglist,
+      },
+  })
+
+  screen.left = wibox({
+      screen = screen,
+      x = 20,
+      y = 2,
+      width = 200,
+      height = 40,
+      visible = true,
+      ontop = false,
+      bg = "#00000000",
+  })
+
+  screen.left:setup({
+      layout = wibox.layout.align.horizontal,
+      nil,
+      {
           layout = wibox.layout.fixed.horizontal,
           spacing = beautiful.menu.spacing,
-          brightness,
-          -- volume
-          battery,
+
+          -- brightness,
+          -- battery,
+          keyboard_layout,
+          time,
+          date,
+          -- {
+          --     layout = wibox.container.place,
+          --     screen.tray,
+          --     valign = "center",
+          --     halign = "center",
+          -- },
+      },
+    })
+
+  screen.right = wibox({
+      screen = screen,
+      x = screen.geometry.width - 220,
+      y = 2,
+      width = 200,
+      height = 40,
+      visible = true,
+      ontop = false,
+      bg = "#00000000",
+  })
+
+  screen.right:setup({
+      widget = wibox.container.place,
+      halign = "right",
+      {
+      layout = wibox.layout.align.horizontal,
+      {
+        layout = wibox.layout.fixed.horizontal,
+        spacing = beautiful.menu.spacing,
           date,
           time,
           keyboard_layout,
-          { layout = wibox.container.place, screen.tray, valign = "center", halign = "center" },
-        },
-      },
-    },
-  })
+       },
+    }    })
+
 end
 
 return module

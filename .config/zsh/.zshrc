@@ -17,6 +17,9 @@ alias gbye="awesome-client 'awesome.quit()'"
 alias vim="nvim"
 alias xinitrc="nvim ${XDG_CONFIG_HOME}/X11/Xinitrc"
 alias brave="brave-origin"
+alias wifi="nmtui"
+alias bluetooth="bluetoothctl"
+alias bt="bluetui"
 
 function prepend_path() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
