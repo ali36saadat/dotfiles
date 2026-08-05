@@ -20,6 +20,15 @@ alias brave="brave-origin"
 alias wifi="nmtui"
 alias bluetooth="bluetoothctl"
 alias bt="bluetui"
+alias bt="bluetui"
+alias bt="bluetui"
+sv() {
+    case "$1" in
+        +*) pactl set-sink-volume @DEFAULT_SINK@ "${1#?}%+" ;;
+        -*) pactl set-sink-volume @DEFAULT_SINK@ "${1#?}%-" ;;
+        *)  pactl set-sink-volume @DEFAULT_SINK@ "$1%" ;;
+    esac
+}
 
 function prepend_path() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
