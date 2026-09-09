@@ -28,6 +28,7 @@ alias bt="bluetui"
 alias bt="bluetui"
 alias bt="bluetui"
 alias sdn="shutdown now"
+alias dockerr="systemctl start docker"
 
 sv() {
     case "$1" in
