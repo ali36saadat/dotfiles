@@ -111,6 +111,9 @@
 !.local/
 .local/*
 !.local/bin/
+.local/bin/uv
+.local/bin/uvx
+.local/bin/python3.12
 .local/bin/deno
 .local/bin/zed
 .local/bin/applications/
@@ -141,3 +144,4 @@
 **/__pycache__/
 \\
 .Xauthority
+.profile
