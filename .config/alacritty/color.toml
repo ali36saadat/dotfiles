@@ -9,7 +9,7 @@ white = "#eaeaea"
 yellow = "#e7c547"
 
 [colors.cursor]
-cursor = "#F6CA52"
+cursor = "#FFCC33"
 text = "#131313"
 
 [colors.dim]
@@ -46,16 +46,16 @@ yellow = "#F6CA52"
 
 [colors.primary]
 background = "#0e1014"
-bright_foreground = "#eaeaea"
+bright_foreground = "#fafafa"
 dim_foreground = "#828482"
-foreground = "#FFFFFF"
+foreground = "#fafafa"
 
 [colors.search.focused_match]
 background = "#000000"
-foreground = "#ffffff"
+foreground = "#fafafa"
 
 [colors.search.matches]
-background = "#ffffff"
+background = "#fafafa"
 foreground = "#000000"
 
 [colors.selection]

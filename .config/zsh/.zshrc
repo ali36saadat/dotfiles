@@ -4,11 +4,16 @@ export HISTSIZE=2000
 export SHELL="/bin/zsh"
 export SAVEHIST=$HISTSIZE
 export HISTFILE="${XDG_CONFIG_HOME}/zsh/history"
+export ZSH_CUSTOM="$HOME/.config/oh-my-zsh/custom"
+export ZSH_THEME="skill"
+export GEM_HOME="$HOME/.local/share/gem"
+export GEM_PATH="$HOME/.local/share/gem"
 
-YELLOW="$(tput setaf 11)"
-RESET="$(tput sgr0)"
+YELLOW="%{$(tput setaf 11)%}"
+RESET="%{$(tput sgr0)%}"
 
 export PS1="%{$YELLOW%}%1~ $ %{$RESET%}"
+
 
 alias zshrc="$EDITOR ${ZDOTDIR}/.zshrc"
 alias reload="source ${ZDOTDIR}/.zshrc"
@@ -22,6 +27,8 @@ alias bluetooth="bluetoothctl"
 alias bt="bluetui"
 alias bt="bluetui"
 alias bt="bluetui"
+alias sdn="shutdown now"
+
 sv() {
     case "$1" in
         +*) pactl set-sink-volume @DEFAULT_SINK@ "${1#?}%+" ;;
@@ -37,3 +44,11 @@ function prepend_path() {
 }
 
 prepend_path "$HOME/.local/bin"
+prepend_path "$HOME/.local/share/gem/ruby/3.4.0/bin"
+prepend_path "$HOME/.local/share/gem/ruby/3.4.0/bin"
+
+export ZSH="$HOME/.config/oh-my-zsh"
+
+plugins=( git )
+
+[[ -f "$ZSH/oh-my-zsh.sh" ]] && . "$ZSH/oh-my-zsh.sh"
