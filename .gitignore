@@ -105,6 +105,7 @@
 .config/zsh/.zsh_history
 .config/zsh/history
 !.config/waybar/
+!.config/quickshell/
 
 # local
 !.local/
