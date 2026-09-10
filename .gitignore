@@ -127,6 +127,8 @@
 !.local/share/gnupg
 .local/share/gnupg/*
 !.local/share/gnupg/gpg-agent.conf
+!.local/share/themes
+.local/share/themes/current
 
 # .ssh
 !.ssh/

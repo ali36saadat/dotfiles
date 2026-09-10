@@ -18,14 +18,16 @@ hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. "+ SHIFT + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + T", hl.dsp.layout("swapwithmaster"))    -- dwindle onlybb
+hl.bind(mainMod .. " + T", hl.dsp.layout("swapwithmaster"))    -- dwindle 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("qs ipc call notch toggle"))
+
+hl.bind("Menu", hl.dsp.exec_cmd("qs ipc call notch toggle"))
 
 -- hl.bind(mainMod .. " + TAB", hl.dsp("cyclenext"))
 -- hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp("cyclenext", { prev = true }))
@@ -49,6 +51,7 @@ end
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("rofi -show run"))
+-- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("alacritty"))
 
 -- Scroll through existing workspaces with mainMod + scroll

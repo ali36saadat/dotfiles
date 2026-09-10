@@ -68,17 +68,28 @@ QtObject {
     function _applyLayout(name) {
         if (!name)
             return;
-        var n = ("" + name).toLowerCase();
-        if (n.indexOf("rus") !== -1 || n.startsWith("ru"))
-            hypr.layoutCode = "ru";
-        else if (n.indexOf("ukrain") !== -1)
-            hypr.layoutCode = "ua";
-        else if (n.indexOf("german") !== -1 || n.startsWith("de"))
-            hypr.layoutCode = "de";
-        else if (n.indexOf("french") !== -1)
-            hypr.layoutCode = "fr";
-        else
+
+        var n = ("" + name).toLowerCase().trim();
+
+        if (
+            n === "ir" ||
+            n.startsWith("ir") ||
+            n.indexOf("iran") !== -1 ||
+            n.indexOf("pers") !== -1 ||
+            n.indexOf("fars") !== -1
+        ) {
+            hypr.layoutCode = "fa";
+        }
+        else if (
+            n === "en" ||
+            n.startsWith("en") ||
+            n.indexOf("english") !== -1
+        ) {
             hypr.layoutCode = "en";
+        }
+        else {
+            hypr.layoutCode = "en";
+        }
     }
 
     // Cycle layouts the same way `grp:alt_shift_toggle` does. Deliberately a

@@ -146,7 +146,7 @@ QtObject {
     // Keyboard layouts in the order `kb_layout` lists them, as the two-letter
     // codes the notch shows. Must match your Hyprland input config, because
     // the segmented switch in the layout transient indexes into this.
-    readonly property var layoutCodes: ["en", "ru"]
+    readonly property var layoutCodes: ["en", "fa"]
 
     // ── wallpapers ───────────────────────────────────────────────
     // Where the picker looks, relative to $HOME.
