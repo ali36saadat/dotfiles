@@ -17,7 +17,7 @@ export PS1="%{$YELLOW%}%1~ $ %{$RESET%}"
 
 alias zshrc="$EDITOR ${ZDOTDIR}/.zshrc"
 alias reload="source ${ZDOTDIR}/.zshrc"
-alias pacman="$HOME/lazy-pacman"
+alias pacman="$HOME/.local/bin/lazy-pacman"
 alias gbye="awesome-client 'awesome.quit()'"
 alias vim="nvim"
 alias xinitrc="nvim ${XDG_CONFIG_HOME}/X11/Xinitrc"
