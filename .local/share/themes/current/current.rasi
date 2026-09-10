@@ -1,0 +1,13 @@
+* {
+    background: #161A20;
+    surface: #232832;
+    text: #FFFFFF;
+    accent: #FFFFFF;
+    secondary: #FFFFFF;
+    border: #0E1115;
+
+    surface-hover: #3B4049;
+    surface-active: #464A53;
+    raised: #393E47;
+    sunken: #171A21;
+}
