@@ -1,0 +1,313 @@
+#!/bin/bash
+
+THEMES_DIR="$HOME/.local/share/themes"
+
+COLORS_DIR="$THEMES_DIR/colors"
+WALLPAPER_DIR="$THEMES_DIR/wallpapers"
+CURRENT_DIR="$THEMES_DIR/current"
+
+CURRENT_FILE="$CURRENT_DIR/current"
+ROFI_FILE="$CURRENT_DIR/current.rasi"
+HYPRLOCK_FILE="$CURRENT_DIR/current.conf"
+ALACRITTY_FILE="$CURRENT_DIR/current.toml"
+GTK_FILE="$CURRENT_DIR/current.css"
+QT_FILE="$CURRENT_DIR/current.qss"
+
+THEME="${1:-}"
+
+if [[ -z "$THEME" ]]; then
+    echo "Usage: theme <blue|orange|night|light|legacy>"
+    exit 1
+fi
+
+COLORS_FILE="$COLORS_DIR/$THEME/colors.conf"
+
+if [[ ! -f "$COLORS_FILE" ]]; then
+    echo "Theme '$THEME' does not exist."
+    echo "Expected: $COLORS_FILE"
+    exit 1
+fi
+
+mkdir -p "$CURRENT_DIR"
+
+# Read base colors
+declare -A C
+
+while IFS='=' read -r key value; do
+    [[ -z "$key" || "$key" == \#* ]] && continue
+
+    key="$(printf '%s' "$key" | xargs)"
+    value="$(printf '%s' "$value" | xargs)"
+
+    C["$key"]="$value"
+done < "$COLORS_FILE"
+
+background="${C[background]:-#0D1117}"
+surface="${C[surface]:-#161B22}"
+text="${C[text]:-#F0F6FC}"
+accent="${C[accent]:-#58A6FF}"
+secondary="${C[secondary]:-$accent}"
+border="${C[border]:-#30363D}"
+
+# Color helpers
+hex_to_rgb() {
+    local hex="${1#\#}"
+
+    printf '%d %d %d\n' \
+        "$((16#${hex:0:2}))" \
+        "$((16#${hex:2:2}))" \
+        "$((16#${hex:4:2}))"
+}
+
+rgb_to_hex() {
+    printf '#%02X%02X%02X\n' "$1" "$2" "$3"
+}
+
+blend() {
+    local a
+    local b
+    local t="$3"
+
+    a=($(hex_to_rgb "$1"))
+    b=($(hex_to_rgb "$2"))
+
+    local r
+    local g
+    local b2
+
+    r=$(awk -v a="${a[0]}" -v b="${b[0]}" -v t="$t" \
+        'BEGIN { printf "%d", a + (b-a)*t + 0.5 }')
+
+    g=$(awk -v a="${a[1]}" -v b="${b[1]}" -v t="$t" \
+        'BEGIN { printf "%d", a + (b-a)*t + 0.5 }')
+
+    b2=$(awk -v a="${a[2]}" -v b="${b[2]}" -v t="$t" \
+        'BEGIN { printf "%d", a + (b-a)*t + 0.5 }')
+
+    rgb_to_hex "$r" "$g" "$b2"
+}
+
+luminance() {
+    local rgb
+
+    rgb=($(hex_to_rgb "$1"))
+
+    awk \
+        -v r="${rgb[0]}" \
+        -v g="${rgb[1]}" \
+        -v b="${rgb[2]}" \
+        'BEGIN {
+            printf "%.6f", (0.2126*r + 0.7152*g + 0.0722*b) / 255
+        }'
+}
+
+alpha() {
+    local hex="${1#\#}"
+    local a="$2"
+
+    printf 'rgba(%d,%d,%d,%s)' \
+        "$((16#${hex:0:2}))" \
+        "$((16#${hex:2:2}))" \
+        "$((16#${hex:4:2}))" \
+        "$a"
+}
+
+
+# Derived colors
+LUM=$(luminance "$background")
+
+if awk -v lum="$LUM" 'BEGIN { exit !(lum > 0.62) }'; then
+    isLight=true
+
+    surfaceHover=$(blend "$surface" "$text" 0.06)
+    surfaceActive=$(blend "$surface" "$text" 0.10)
+    raised=$(blend "$surface" "$text" 0.18)
+    sunken=$(blend "$surface" "#000000" 0.08)
+    scrim=$(alpha "#000000" 0.14)
+else
+    isLight=false
+
+    surfaceHover=$(blend "$surface" "$text" 0.11)
+    surfaceActive=$(blend "$surface" "$text" 0.16)
+    raised=$(blend "$surface" "$text" 0.10)
+    sunken=$(blend "$surface" "#000000" 0.35)
+    scrim=$(alpha "#000000" 0.34)
+fi
+
+textMuted=$(alpha "$text" 0.55)
+textFaint=$(alpha "$text" 0.30)
+
+ACCENT_LUM=$(luminance "$accent")
+
+if awk -v lum="$ACCENT_LUM" 'BEGIN { exit !(lum > 0.55) }'; then
+    accentText="#141317"
+else
+    accentText="#F7F7FA"
+fi
+
+negative=$(blend "#E06C75" "$text" 0.10)
+
+
+# current/current
+cat > "$CURRENT_FILE" <<EOF
+theme=$THEME
+
+# Base colors
+background=$background
+surface=$surface
+text=$text
+accent=$accent
+secondary=$secondary
+border=$border
+
+# Derived colors
+isLight=$isLight
+notchFill=#000000
+panel=$surface
+surfaceHover=$surfaceHover
+surfaceActive=$surfaceActive
+raised=$raised
+sunken=$sunken
+separator=$border
+textPrimary=$text
+textSecondary=$secondary
+textMuted=$textMuted
+textFaint=$textFaint
+accentText=$accentText
+scrim=$scrim
+negative=$negative
+EOF
+
+
+# current/current.conf
+cat > "$HYPRLOCK_FILE" <<EOF
+\$background = $background
+\$surface = $surface
+\$text = $text
+\$accent = $accent
+\$secondary = $secondary
+\$border = $border
+\$panel = $surface
+\$surfaceHover = $surfaceHover
+\$surfaceActive = $surfaceActive
+\$raised = $raised
+\$sunken = $sunken
+\$separator = $border
+\$textPrimary = $text
+\$textSecondary = $secondary
+\$textMuted = $textMuted
+\$textFaint = $textFaint
+\$accentText = $accentText
+\$scrim = $scrim
+\$negative = $negative
+EOF
+
+
+# current/current.rasi
+cat > "$ROFI_FILE" <<EOF
+* {
+    background: $background;
+    surface: $surface;
+    text: $text;
+    accent: $accent;
+    secondary: $secondary;
+    border: $border;
+
+    surface-hover: $surfaceHover;
+    surface-active: $surfaceActive;
+    raised: $raised;
+    sunken: $sunken;
+}
+EOF
+
+
+# current/current.toml
+cat > "$ALACRITTY_FILE" <<EOF
+[colors.primary]
+background = "$background"
+foreground = "$text"
+
+[colors.cursor]
+text = "$background"
+cursor = "$accent"
+
+[colors.selection]
+text = "$text"
+background = "$surfaceActive"
+
+[colors.normal]
+black = "$background"
+red = "$negative"
+green = "$accent"
+yellow = "$secondary"
+blue = "$accent"
+magenta = "$accent"
+cyan = "$secondary"
+white = "$text"
+
+[colors.bright]
+black = "$surface"
+red = "$negative"
+green = "$accent"
+yellow = "$secondary"
+blue = "$secondary"
+magenta = "$accent"
+cyan = "$secondary"
+white = "$text"
+EOF
+
+
+# current/current.css
+cat > "$GTK_FILE" <<EOF
+@define-color theme_bg_color $background;
+@define-color theme_fg_color $text;
+@define-color theme_base_color $surface;
+@define-color theme_text_color $text;
+@define-color theme_selected_bg_color $accent;
+@define-color theme_selected_fg_color $accentText;
+@define-color insensitive_bg_color $surface;
+@define-color insensitive_fg_color $textMuted;
+@define-color borders $border;
+EOF
+
+
+# current/current.qss
+cat > "$QT_FILE" <<EOF
+QWidget {
+    background-color: $background;
+    color: $text;
+}
+
+QPushButton {
+    background-color: $surface;
+    color: $text;
+    border: 0;
+    border-radius: 10px;
+}
+
+QPushButton:hover {
+    background-color: $surfaceHover;
+}
+
+QPushButton:pressed {
+    background-color: $surfaceActive;
+    color: $accent;
+}
+EOF
+
+
+# Wallpaper
+WALLPAPER="$WALLPAPER_DIR/$THEME.png"
+
+if [[ -f "$WALLPAPER" ]]; then
+    awww img \
+        --transition-type wipe \
+        --transition-angle 45 \
+        --transition-duration 0.8 \
+        --transition-fps 144 \
+        "$WALLPAPER"
+else
+    echo "Warning: wallpaper not found: $WALLPAPER"
+fi
+
+echo "Theme changed to: $THEME"
