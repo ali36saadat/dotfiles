@@ -1,2 +1,2 @@
-## DOTFILES - ARCH LINUX
-![DOTFILES - Headder](https://github.com/user-attachments/assets/5af3a4df-800a-4e43-b6d3-967afdab210f)
+## DOTFILES
+![DOTFILES - Headder](https://github.com/user-attachments/assets/ab1371bc-70dd-4e67-8dc5-c39179085417)
