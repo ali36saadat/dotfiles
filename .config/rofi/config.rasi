@@ -104,5 +104,10 @@ element selected active {
 }
 
 listview {
+    background-color: transparent;
+    margin: 12px 0 0;
+    lines: 8;
+    columns: 1;
+    fixed-height: true;
     scrollbar: false;
 }
