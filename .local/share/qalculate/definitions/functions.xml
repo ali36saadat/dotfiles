@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<QALCULATE version="5.12.0">
+  <function>
+    <names>th</names>
+    <expression>tanh(\x)</expression>
+  </function>
+
+  <function>
+    <names>ath</names>
+    <expression>atanh(\x)</expression>
+  </function>
+</QALCULATE>

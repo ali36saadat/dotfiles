@@ -106,6 +106,7 @@
 .config/zsh/history
 !.config/waybar/
 !.config/quickshell/
+!.config/qalculate/
 
 # local
 !.local/
@@ -129,7 +130,8 @@
 !.local/share/gnupg/gpg-agent.conf
 !.local/share/themes
 .local/share/themes/current
-.local/share/concky/
+!.local/share/qalculate/
+
 
 # .ssh
 !.ssh/
