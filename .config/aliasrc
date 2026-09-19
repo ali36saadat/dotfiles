@@ -1,0 +1,93 @@
+#!/bin/bash
+
+edit() {
+  $EDITOR "$@"
+}
+
+# clear
+alias c='clear'
+alias clwer='clear'
+alias cear='clear'
+alias cler='clear'
+alias clea='clear'
+alias clar='clear'
+alias clewar='clear'
+alias lear='clear'
+alias celra='clear'
+alias clera='clear'
+alias claer='clear'
+alias celar='clear'
+alias clare='clear'
+
+# reload
+alias reload='source "${ZDOTDIR:-$HOME}/.zshrc"'
+alias relaod=reload
+alias relad=reload
+alias relod=reload
+
+# path shorcuts
+alias ~='cd ~'
+alias ..='cd ..'
+alias dt='cd ~/desktop'
+
+
+# config files - ending with 'rc'
+alias zshrc="edit ${ZDOTDIR}/.zshrc"
+alias historyrc='edit ~/.local/share/history'
+alias bookmarkrc='edit $HOME/.config/bookmarkrc'
+alias profilerc='edit ~/.profile'
+alias gitrc='edit $XDG_CONFIG_HOME/git/config'
+alias zalias='edit $XDG_CONFIG_HOME/aliasrc'
+alias vimrc='edit $XDG_CONFIG_HOME/nvim/init.lua'
+alias vimplug='edit $XDG_CONFIG_HOME/nvim/plugins.vim'
+alias tmuxrc='edit $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias alacrittyrc='edit $XDG_CONFIG_HOME/alacritty/alacritty.yml'
+alias i3rc='edit $XDG_CONFIG_HOME/i3/config'
+alias fontrc='edit $XDG_CONFIG_HOME/fontconfig/'
+alias fontrc='edit $XDG_CONFIG_HOME/fontconfig/'
+alias gpgrc='edit $GNUPGHOME/gpg-agent.conf'
+alias xinitrc='edit $XDG_CONFIG_HOME/X11/xinitrc'
+alias sxrc='edit $XDG_CONFIG_HOME/sxhkd/sxhkdrc'
+alias picomrc='edit $XDG_CONFIG_HOME/picom/picom.conf'
+
+
+alias pacman="lazy-pacman"
+alias gbye="awesome-client 'awesome.quit()'"
+alias vim="nvim"
+alias xinitrc="nvim ${XDG_CONFIG_HOME}/X11/Xinitrc"
+alias brave="brave-origin"
+alias wifi="nmtui"
+alias bluetooth="bluetoothctl"
+alias bt="bluetui"
+alias sdn="shutdown now"
+alias dockerr="systemctl start docker"
+
+# pacman - starting with 'pac'
+alias pm='pacman -S'
+alias pmr='pacman -R'
+alias pmls='pacman -Qi'
+alias pmu='pacman -Syuu'
+
+# paru - starting with 'par'
+alias pr='paru -S'
+alias prr='paru -R'
+alias pls='paru -Qi'
+alias pru='paru -Syu'
+
+## git - starting with 'g'
+alias gc='git clone'
+alias gs='git status -s'
+alias gsl='git stash list'
+alias gf='git fetch'
+alias gfp='git fetch --prune'
+alias gpull='git pull'
+alias gpush='git push'
+
+lazy-pacman() {
+  case $1 in
+  -S | -D | -S[^sih]* | -R* | -U*)
+    /usr/bin/sudo /usr/bin/pacman "$@"
+    ;;
+  *) /usr/bin/pacman "$@" ;;
+  esac
+}

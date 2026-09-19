@@ -14,22 +14,6 @@ RESET="%{$(tput sgr0)%}"
 
 export PS1="%{$YELLOW%}%1~ $ %{$RESET%}"
 
-
-alias zshrc="$EDITOR ${ZDOTDIR}/.zshrc"
-alias reload="source ${ZDOTDIR}/.zshrc"
-alias pacman="$HOME/.local/bin/lazy-pacman"
-alias gbye="awesome-client 'awesome.quit()'"
-alias vim="nvim"
-alias xinitrc="nvim ${XDG_CONFIG_HOME}/X11/Xinitrc"
-alias brave="brave-origin"
-alias wifi="nmtui"
-alias bluetooth="bluetoothctl"
-alias bt="bluetui"
-alias bt="bluetui"
-alias bt="bluetui"
-alias sdn="shutdown now"
-alias dockerr="systemctl start docker"
-
 sv() {
     case "$1" in
         +*) pactl set-sink-volume @DEFAULT_SINK@ "${1#?}%+" ;;
@@ -53,3 +37,8 @@ export ZSH="$HOME/.config/oh-my-zsh"
 plugins=( git )
 
 [[ -f "$ZSH/oh-my-zsh.sh" ]] && . "$ZSH/oh-my-zsh.sh"
+
+
+unalias l
+[[ -f "${XDG_CONFIG_HOME}/aliasrc" ]] && . "${XDG_CONFIG_HOME}/aliasrc"
+[[ -f "${XDG_CONFIG_HOME}/bookmarkrc" ]] && . "${XDG_CONFIG_HOME}/bookmarkrc"
