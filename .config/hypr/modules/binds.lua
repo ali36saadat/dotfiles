@@ -25,7 +25,7 @@ hl.bind(mainMod .. " + G", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("/home/ali/.local/bin/flyterm --toggle"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("flyterm --toggle"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 
 hl.bind("Menu", hl.dsp.exec_cmd("qs ipc call notch toggle"))
@@ -54,6 +54,7 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:mag
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("rofi -show run"))
 -- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("sh -c 'hyprctl switchxkblayout all 0 && exec alacritty'"))
+hl.bind("XF86Calculator", hl.dsp.exec_cmd("flycalc --toggle"))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

@@ -4,6 +4,8 @@
 
 -- -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
+hl.env("PATH", (os.getenv("PATH") or "") .. ":" .. (os.getenv("HOME") or "/home/ali") .. "/.local/bin")
+
 -- hl.env("XCURSOR_SIZE", "24")
 -- hl.env("HYPRCURSOR_SIZE", "24")
 

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [[ "${1:-}" != "--toggle" ]]; then
+  printf 'Usage: %s --toggle\n' "$0" >&2
+  exit 2
+fi
+
+if hyprctl clients -j 2>/dev/null | grep -Eq '"class"[[:space:]]*:[[:space:]]*"flycalc"'; then
+  exec hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special("calculator"))'
+fi
+
+exec alacritty --class flycalc --option window.opacity=1.0 -e qalc --interactive
+
+
+
+

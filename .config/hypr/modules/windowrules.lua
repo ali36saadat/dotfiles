@@ -59,3 +59,14 @@ hl.window_rule({
     size      = "70% 70%",
     opacity   = "1.0 1.0",
 })
+
+hl.window_rule({
+    name  = "dropdown-calculator",
+    match = { class = "^flycalc$" },
+
+    workspace = "special:calculator",
+    float     = true,
+    center    = true,
+    size      = "40% 45%",
+    opacity   = "1.0 1.0",
+})
