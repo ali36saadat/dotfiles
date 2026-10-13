@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
-SESSION_NAME=flyterm
+SESSION_NAME="flyterm"
 
-tmux has-session -t $SESSION_NAME 2>/dev/null
+case "${1:-}" in
+  --toggle)
+    if hyprctl clients -j 2>/dev/null | grep -Eq '"class"[[:space:]]*:[[:space:]]*"flyterm"'; then
+      exec hyprctl eval 'hl.dispatch(hl.dsp.workspace.toggle_special("dropdown"))'
+    fi
+    ;;
+  "") ;;
+  *)
+    printf 'Usage: %s [--toggle]\n' "$0" >&2
+    exit 2
+    ;;
+esac
 
-if [ $? != 0 ]; then
-  alacritty --class $SESSION_NAME -e tmux new-session -s flyterm
+if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  exec alacritty --class "$SESSION_NAME" --option window.opacity=1.0 -e tmux new-session -s "$SESSION_NAME"
 else
-  alacritty --class $SESSION_NAME -e tmux attach
+  exec alacritty --class "$SESSION_NAME" --option window.opacity=1.0 -e tmux attach-session -t "$SESSION_NAME"
 fi
