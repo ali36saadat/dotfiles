@@ -3,7 +3,7 @@ configuration {
     show-icons: false;
 }
 
-@import "/home/ali/.local/share/themes/current/current.rasi"
+@import "~/.local/share/themes/current/current.rasi"
 
 * {
     font: "Roboto 12";
