@@ -4,6 +4,7 @@
 </a>
 
 ## What's included
+
 | Application          | Description              |
 | -------------------- | ------------------------ |
 | Window Manager       | Hyprland                 |
