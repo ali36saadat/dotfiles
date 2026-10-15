@@ -17,21 +17,27 @@ Item {
     property real value: 0            // 0..1
     property bool off: false          // muted / disabled state
     property bool iconToggles: true
+    property bool showIcon: true
+    property bool compact: false
     // What the trailing readout shows. Defaults to a percentage.
     property string valueText: Math.round(Config.clamp(value, 0, 1) * 100) + "%"
 
     signal moved(real v)
     signal iconClicked
 
-    implicitHeight: Config.sliderHeight
+    implicitHeight: compact ? 20 : Config.sliderHeight
 
     // The icon's fixed lane, shared by the badge, the hit area and the drag
     // origin so all three agree on where the track actually starts.
-    readonly property real iconLane: 40
+    readonly property real iconLane: showIcon ? 40 : 0
 
     SoftCard {
         id: track
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.rightMargin: row.compact ? 42 : 0
+        anchors.verticalCenter: parent.verticalCenter
+        height: row.compact ? 4 : parent.height
         radius: height / 2
         sunken: true
 
@@ -60,6 +66,7 @@ Item {
         Icon {
             id: icon
             anchors.left: parent.left
+            visible: row.showIcon && !row.compact
             // Centred in the icon lane rather than offset by a hand-picked
             // margin, so it lines up with every other icon in the sheet.
             anchors.leftMargin: (row.iconLane - width) / 2
@@ -80,7 +87,20 @@ Item {
             font.pixelSize: 11
             font.weight: Font.DemiBold
             opacity: row.off ? 0.5 : 1
+            visible: !row.compact
         }
+    }
+
+    Text {
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        text: row.valueText
+        color: Theme.textSecondary
+        font.family: Theme.fontMono
+        font.pixelSize: 10
+        font.weight: Font.DemiBold
+        opacity: row.off ? 0.55 : 1
+        visible: row.compact
     }
 
     // Icon hit area — toggles without moving the value.
@@ -89,7 +109,7 @@ Item {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: row.iconLane
-        enabled: row.iconToggles
+        enabled: row.iconToggles && row.showIcon && !row.compact
         cursorShape: Qt.PointingHandCursor
         onClicked: row.iconClicked()
     }
@@ -98,11 +118,12 @@ Item {
     MouseArea {
         id: dragArea
         anchors.fill: parent
-        anchors.leftMargin: row.iconToggles ? row.iconLane : 0
+        anchors.rightMargin: row.compact ? 42 : 0
+        anchors.leftMargin: row.iconToggles && row.showIcon ? row.iconLane : 0
         cursorShape: Qt.PointingHandCursor
 
         function apply(mx) {
-            var usable = row.width - (row.iconToggles ? row.iconLane : 0);
+            var usable = row.width - (row.compact ? 42 : 0) - (row.iconToggles && row.showIcon ? row.iconLane : 0);
             if (usable <= 0)
                 return;
             row.moved(Config.clamp(mx / usable, 0, 1));

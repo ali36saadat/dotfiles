@@ -8,7 +8,7 @@ import QtQuick
 QtObject {
     id: nav
 
-    // "root" | "network" | "audio" | "nightlight" | "notifications" | "power" | "calendar"
+    // "root" | "network" | "bluetooth" | "karing" | "audio" | "nightlight" | "notifications" | "power" | "calendar"
     property string page: "root"
     readonly property bool atRoot: page === "root"
 

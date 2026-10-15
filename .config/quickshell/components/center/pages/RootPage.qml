@@ -92,6 +92,32 @@ Item {
                 }
                 ControlTile {
                     width: page.tileWidth
+                    visible: Bluetooth.available
+                    glyph: Icons.bluetooth
+                    label: "Bluetooth"
+                    sublabel: Bluetooth.summary
+                    active: Bluetooth.powered
+                    busy: Bluetooth.busy
+                    drill: true
+                    quick: true
+                    onToggled: Bluetooth.togglePower()
+                    onOpened: CenterNav.go("bluetooth")
+                }
+                ControlTile {
+                    width: page.tileWidth
+                    visible: Karing.available
+                    glyph: Icons.vpn
+                    label: "Karing"
+                    sublabel: Karing.summary
+                    active: Karing.connected
+                    busy: Karing.busy
+                    drill: true
+                    quick: true
+                    onToggled: Karing.toggle()
+                    onOpened: CenterNav.go("karing")
+                }
+                ControlTile {
+                    width: page.tileWidth
                     glyph: Audio.muted ? Icons.volumeMute : Icons.headphones
                     label: "Audio"
                     sublabel: Audio.muted ? "Muted" : Audio.sinkLabel

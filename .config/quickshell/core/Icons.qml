@@ -16,6 +16,7 @@ QtObject {
     readonly property string headphones: ""
 
     readonly property string wifi: ""
+    readonly property string bluetooth: ""
     readonly property string ethernet: ""
     readonly property string vpn: ""
     readonly property string globe: ""
@@ -36,6 +37,7 @@ QtObject {
 
     readonly property string chevronLeft: ""
     readonly property string chevronRight: ""
+    readonly property string refresh: ""
     readonly property string check: ""
 
     readonly property string search: ""
