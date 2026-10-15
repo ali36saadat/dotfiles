@@ -29,6 +29,10 @@ Item {
         switch (CenterNav.page) {
         case "network":
             return networkPage.implicitHeight;
+        case "bluetooth":
+            return bluetoothPage.implicitHeight;
+        case "karing":
+            return karingPage.implicitHeight;
         case "audio":
             return audioPage.implicitHeight;
         case "nightlight":
@@ -57,6 +61,8 @@ Item {
         target: UiState
         function onCenterVisibleChanged() {
             Net.polling = UiState.centerVisible;
+            Bluetooth.polling = UiState.centerVisible;
+            Karing.polling = UiState.centerVisible;
             Notify.polling = UiState.centerVisible;
             Media.polling = UiState.centerVisible;
             if (UiState.centerVisible)
@@ -139,6 +145,16 @@ Item {
                 id: networkPage
                 width: parent.width
                 visible: CenterNav.page === "network"
+            }
+            BluetoothPage {
+                id: bluetoothPage
+                width: parent.width
+                visible: CenterNav.page === "bluetooth"
+            }
+            KaringPage {
+                id: karingPage
+                width: parent.width
+                visible: CenterNav.page === "karing"
             }
             AudioPage {
                 id: audioPage

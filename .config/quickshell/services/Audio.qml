@@ -34,6 +34,55 @@ QtObject {
         }
         return out;
     }
+    property var appStreams: []
+    property var _appVolumes: ({})
+
+    function _refreshAppStreams() {
+        var nodes = Pipewire.nodes ? Pipewire.nodes.values : [];
+        var streams = [];
+        var ids = [];
+        for (var i = 0; i < nodes.length; i++) {
+            var node = nodes[i];
+            if (PwNodeType.toString(node.type) === "AudioOutStream") {
+                streams.push(node);
+                ids.push(node.id);
+            }
+        }
+        var currentIds = [];
+        for (var j = 0; j < appStreams.length; j++)
+            currentIds.push(appStreams[j].id);
+        if (ids.length !== currentIds.length || ids.some(function (id, index) { return id !== currentIds[index]; })) {
+            appStreams = streams;
+            var retained = {};
+            for (var k = 0; k < streams.length; k++) {
+                var key = "" + streams[k].id;
+                if (_appVolumes.hasOwnProperty(key))
+                    retained[key] = _appVolumes[key];
+            }
+            _appVolumes = retained;
+        }
+        _rememberNewAppVolumes();
+    }
+
+    function _rememberNewAppVolumes() {
+        var levels = Object.assign({}, _appVolumes);
+        var changed = false;
+        for (var i = 0; i < appStreams.length; i++) {
+            var stream = appStreams[i];
+            if (!stream.ready || !stream.audio)
+                continue;
+            var key = "" + stream.id;
+            if (levels.hasOwnProperty(key))
+                continue;
+            levels[key] = volume <= 0 || muted ? 1 : stream.audio.volume;
+            changed = true;
+        }
+        if (!changed)
+            return;
+        _appVolumes = levels;
+        _applyAppVolumes(volume, muted);
+        _setSinkLevels(volume, muted);
+    }
 
     // Volume reads need the node bound, so track the defaults plus anything
     // the device lists expose.
@@ -48,6 +97,8 @@ QtObject {
                 o.push(audio.sinks[i]);
             for (var j = 0; j < audio.sources.length; j++)
                 o.push(audio.sources[j]);
+            for (var k = 0; k < audio.appStreams.length; k++)
+                o.push(audio.appStreams[k]);
             return o;
         }
     }
@@ -61,6 +112,13 @@ QtObject {
         if (!n)
             return "";
         return n.nickname || n.description || n.name || "";
+    }
+
+    function appLabel(n) {
+        if (!n)
+            return "";
+        var props = n.properties || {};
+        return props["application.name"] || props["media.name"] || nodeLabel(n);
     }
 
     // ── output ──────────────────────────────────────────────────
@@ -85,14 +143,25 @@ QtObject {
     function setVolume(v) {
         if (!ready)
             return;
+        var next = Config.clamp(v, 0, 1);
         _selfChange = true;
-        _sink.audio.volume = Config.clamp(v, 0, 1);
+        _applyAppVolumes(next, muted);
+        _setSinkLevels(next, muted);
     }
     function toggleMute() {
         if (!ready)
             return;
         _selfChange = true;
-        _sink.audio.muted = !_sink.audio.muted;
+        var next = !_sink.audio.muted;
+        _applyAppVolumes(volume, next);
+        _setSinkLevels(volume, next);
+    }
+
+    function _setSinkLevels(nextVolume, nextMuted) {
+        if (!_sink || !_sink.ready || !_sink.audio)
+            return;
+        _sink.audio.volume = nextVolume;
+        _sink.audio.muted = nextMuted;
     }
 
     function setMicVolume(v) {
@@ -104,6 +173,44 @@ QtObject {
         if (!micReady)
             return;
         _source.audio.muted = !_source.audio.muted;
+    }
+
+    function setAppVolume(node, v) {
+        if (!node || !node.ready || !node.audio)
+            return;
+        var key = "" + node.id;
+        var levels = Object.assign({}, _appVolumes);
+        levels[key] = Config.clamp(v, 0, 1);
+        _appVolumes = levels;
+        _applyAppVolumes(volume, muted);
+        _setSinkLevels(volume, muted);
+    }
+
+    function appVolume(node) {
+        if (!node)
+            return 0;
+        var key = "" + node.id;
+        if (_appVolumes.hasOwnProperty(key))
+            return _appVolumes[key];
+        return node.audio ? node.audio.volume : 0;
+    }
+
+    function _applyAppVolumes(masterVolume, masterMuted) {
+        var levels = Object.assign({}, _appVolumes);
+        var changed = false;
+        for (var i = 0; i < appStreams.length; i++) {
+            var stream = appStreams[i];
+            if (!stream.ready || !stream.audio)
+                continue;
+            var key = "" + stream.id;
+            if (!levels.hasOwnProperty(key)) {
+                levels[key] = stream.audio.volume;
+                changed = true;
+            }
+            stream.audio.volume = masterMuted || masterVolume <= 0 ? 0 : levels[key];
+        }
+        if (changed)
+            _appVolumes = levels;
     }
 
     function setSink(node) {
@@ -126,4 +233,13 @@ QtObject {
             audio._selfChange = false;
         }
     }
+
+    property Timer _streamPoll: Timer {
+        interval: 1500
+        repeat: true
+        running: true
+        triggeredOnStart: true
+        onTriggered: audio._refreshAppStreams()
+    }
+
 }
