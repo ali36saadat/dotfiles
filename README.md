@@ -1,6 +1,6 @@
 # DOTFILES
 <a href="https://ali36saadat.github.io/repositories/dotfiles">
-  <img src="https://github.com/user-attachments/assets/ab1371bc-70dd-4e67-8dc5-c39179085417" alt="header">
+  <img src="https://github.com/user-attachments/assets/2a73fc9f-9c65-4a9c-a8c6-3e2fca0339d3" alt="header">
 </a>
 
 ## What's included
